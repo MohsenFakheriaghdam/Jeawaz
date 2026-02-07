@@ -1,0 +1,25 @@
+*,
+*::after,
+*::before {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	text-decoration: none;
+	box-sizing: border-box;
+	font-family: Vazirmatn, sans-serif;
+}
+html {
+	font-size: 62.5%;
+}
+
+.container {
+	margin: 0 auto;
+	padding: 0 10px;
+	min-width: 320px;
+	max-width: 1440px;
+	height: 100vh;
+
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: auto 1fr auto;
+}
