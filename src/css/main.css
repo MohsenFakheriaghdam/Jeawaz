@@ -1,3 +1,8 @@
+/* ===========================================
+   RESET AND BASE STYLES
+   =========================================== */
+
+/* Universal reset for all elements */
 *,
 *::after,
 *::before {
@@ -8,24 +13,18 @@
 	box-sizing: border-box;
 	font-family: Vazirmatn, sans-serif;
 }
+
+/* Set base font size to 62.5% for easy rem calculations (1rem = 10px) */
 html {
 	font-size: 62.5%;
 }
 
-.container {
-	margin: 0 auto;
-	padding: 0 10px;
-	min-width: 320px;
-	max-width: 1440px;
-	height: 100vh;
-
-	display: grid;
-	grid-template-columns: 1fr;
-	grid-template-rows: auto 1fr auto;
-}
+/* ===========================================
+   CSS CUSTOM PROPERTIES (VARIABLES)
+   =========================================== */
 
 :root {
-	/* color */
+	/* Color variables */
 	--primary-color: #cc312d;
 	--secondary-color: #ff00001a;
 	--primary-text-color: #1a1814;
@@ -36,7 +35,7 @@ html {
 	--gray-color: #f7f7f7;
 	--white-color: #ffff;
 
-	/* typography */
+	/* Typography variables */
 	--font-base: Vazirmatn, sans-serif;
 
 	--fs-xs: 0.75rem; /* 12px */
@@ -49,7 +48,7 @@ html {
 	--fs-4xl: 2.25rem; /* 36px */
 	--fs-5xl: 2.5rem; /* 40px */
 
-	/* Base spacing unit */
+	/* Spacing variables */
 	--space-0: 0;
 	--space-1: 0.25rem; /* 4px */
 	--space-2: 0.5rem; /* 8px */
@@ -61,28 +60,51 @@ html {
 	--space-8: 4rem; /* 64px */
 }
 
+/* ===========================================
+   UTILITY CLASSES
+   =========================================== */
+
+/* Flexbox utility to center items */
 .flex-center {
 	display: flex;
 	align-items: center;
 	justify-content: center;
 }
-
+/* Pointer cursor utility */
 .pointer {
 	cursor: pointer;
 }
 
-/** _________________________________________  _________________________________________ **/
-/** _____________________________  _____________________________  **/
+/* ===========================================
+   LAYOUT COMPONENTS
+   =========================================== */
 
-/** _________________________________________ Header _________________________________________ **/
+/* Main container for the entire page */
+.container {
+	margin: 0 auto;
+	padding: 0 10px;
+	min-width: 320px;
+	max-width: 1440px;
+	height: 100vh;
 
-#header {
 	display: grid;
 	grid-template-columns: 1fr;
-	grid-template-rows: repeat(2, 1fr);
-	row-gap: var(--space-5);
+	grid-template-rows: auto 1fr auto;
 }
 
+/* ===========================================
+   HEADER STYLES
+   =========================================== */
+
+/* Header grid layout */
+#header {
+	display: grid;
+	row-gap: var(--space-5);
+	grid-template-columns: 1fr;
+	grid-template-rows: repeat(2, 1fr);
+}
+
+/* Main header row */
 .header-main {
 	height: 56px;
 	display: grid;
@@ -92,23 +114,26 @@ html {
 	grid-template-columns: auto 1fr auto;
 }
 
+/* Menu button and cart button styles */
 .header__menu-btn,
 .header__cart {
-	display: flex;
-	align-items: center;
-	justify-content: center;
 	width: 48px;
 	height: 48px;
-	padding: var(--space-3);
+	display: flex;
 	cursor: pointer;
 	border-radius: 52px;
+	align-items: center;
+	justify-content: center;
+	padding: var(--space-3);
 	border: 2px solid var(--priamry-border-color);
 }
 
+/* Specific border for cart in header-main */
 .header-main .header__cart {
 	border: 2px solid var(--secondary-border-color);
 }
 
+/* Logo styling */
 .header__logo {
 	display: flex;
 	align-items: center;
@@ -122,6 +147,7 @@ html {
 	color: var(--primary-color);
 }
 
+/* Cart positioning and count badge */
 .header__cart {
 	position: relative;
 }
@@ -138,12 +164,14 @@ html {
 	color: var(--white-color);
 }
 
+/* Header utility section */
 .header-utility {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: 1fr;
 }
 
+/* Search box component */
 .search-box {
 	height: 48px;
 	display: grid;
@@ -169,8 +197,11 @@ html {
 	padding: var(--space-2);
 }
 
-/* Mobile menu */
+/* ===========================================
+   MOBILE MENU STYLES
+   =========================================== */
 
+/* Mobile menu container */
 .mobile-menu {
 	padding: 28px 19px;
 	position: fixed;
@@ -189,6 +220,7 @@ html {
 	grid-template-rows: auto auto 1fr;
 }
 
+/* Mobile menu header */
 .mobile-menu__header {
 	display: grid;
 	grid-template-columns: 1fr auto;
@@ -196,6 +228,7 @@ html {
 	justify-items: flex-start;
 }
 
+/* Mobile menu logo */
 .mobile-menu__logo {
 	display: flex;
 	align-items: center;
@@ -209,6 +242,7 @@ html {
 	color: var(--primary-color);
 }
 
+/* Mobile menu list */
 .mobile-menu__list {
 	display: grid;
 	gap: 16px;
@@ -224,6 +258,7 @@ html {
 	justify-content: space-between;
 }
 
+/* Mobile menu item */
 .mobile-menu__item {
 	padding: 10px;
 	display: flex;
@@ -231,6 +266,7 @@ html {
 	justify-content: flex-start;
 }
 
+/* Mobile menu link */
 .mobile-menu__link {
 	gap: 8px;
 	width: 100%;
@@ -243,6 +279,7 @@ html {
 	color: var(--primary-text-color) !important;
 }
 
+/* Border bottom utility */
 .border-bottom {
 	border-bottom: 1px solid #ebebeb;
 }
@@ -251,16 +288,19 @@ html {
 	gap: 8px;
 }
 
+/* Mobile menu footer list */
 .mobile-menu__footer-list {
 	display: grid;
 	row-gap: 10px;
 	grid-template-rows: repeat(3, auto);
 }
 
+/* Mobile menu footer item */
 .mobile-menu__footer-item {
 	padding: 8px;
 }
 
+/* Mobile menu footer link */
 .mobile-menu__footer-link {
 	display: flex;
 	flex-direction: row-reverse;
@@ -273,6 +313,7 @@ html {
 	font-size: 14px;
 }
 
+/* Overlay for mobile menu */
 .overlay {
 	position: fixed;
 	inset: 0;
@@ -283,7 +324,7 @@ html {
 	z-index: 1000;
 }
 
-/* Active states */
+/* Active states for mobile menu */
 .mobile-menu.active {
 	right: 0;
 }
@@ -293,28 +334,21 @@ html {
 	pointer-events: auto;
 }
 
-/** _________________________________________ Main _________________________________________ **/
+/* ===========================================
+   RESPONSIVE DESIGN (MEDIA QUERIES)
+   =========================================== */
 
-#main-content {
-	background-color: brown;
-}
-
-/** _________________________________________ Footer _________________________________________ **/
-
-#footer {
-	height: 50px;
-	background-color: blueviolet;
-}
-
-/* Media */
-
+/* Hide search box in header-main by default */
 .header-main .search-box {
 	display: none;
 }
 
+/* Hide header links by default */
 .header__links {
 	display: none;
 }
+
+/* Header link styles */
 .header__link,
 .header__link a {
 	font-size: 14px;
@@ -322,6 +356,7 @@ html {
 	color: var(--primary-text-color);
 }
 
+/* Auth button styles */
 .header__auth {
 	display: none;
 	border-radius: 32px;
@@ -330,10 +365,12 @@ html {
 	gap: 8px;
 }
 
+/* Cart box styles */
 .header__cart-box {
 	display: none;
 	gap: 5px;
 }
+
 .header__cart-box-icon {
 	border-radius: 40px;
 	padding: 10px;
@@ -360,14 +397,14 @@ html {
 	background-color: #f7f7f7;
 }
 
-/* !Header Utility */
-
+/* Hide utility components by default */
 .nav-list,
 .nav-categories,
 .header-contact {
 	display: none;
 }
 
+/* Navigation categories button */
 .nav-categories {
 	height: 40px;
 	border-radius: 52px;
@@ -378,6 +415,7 @@ html {
 	gap: 8px;
 }
 
+/* Header support button */
 .header-support {
 	border-radius: 24px;
 	background-color: #cc312d;
@@ -390,9 +428,12 @@ html {
 	color: white;
 }
 
+/* Header divider */
 .header-divider {
 	border: 1.5px solid #ebebeb;
 }
+
+/* Header phone styles */
 .header-phone {
 	font-size: 14px;
 	color: black;
@@ -403,20 +444,44 @@ html {
 	color: #cc312d;
 }
 
+/* ===========================================
+   MAIN CONTENT
+   =========================================== */
+
+#main-content {
+	background-color: brown;
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+
+#footer {
+	height: 50px;
+	background-color: blueviolet;
+}
+
+/* Tablet and up (768px+) */
 @media screen and (min-width: 768px) {
+	/* Hide menu and cart buttons */
 	.header__menu-btn,
 	.header__cart {
 		display: none;
 	}
+
+	/* Adjust header-main grid */
 	.header-main {
 		gap: 10px;
 		grid-template-columns: auto 1fr 1fr;
 	}
+
+	/* Show search box in header-main */
 	.header-main .search-box {
 		display: flex;
 		width: 100%;
 	}
 
+	/* Show header links */
 	.header__links {
 		width: 100%;
 		display: flex;
@@ -424,10 +489,12 @@ html {
 		justify-content: space-between;
 	}
 
+	/* Hide search box in header-utility */
 	.header-utility .search-box {
 		display: none;
 	}
 
+	/* Adjust header-utility grid */
 	.header-utility {
 		display: grid;
 		grid-template-columns: auto 1fr auto;
@@ -435,12 +502,15 @@ html {
 		align-items: center;
 		gap: 10px;
 	}
+
+	/* Show nav categories */
 	.nav-categories {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 	}
 
+	/* Show nav list and item links */
 	.nav-list,
 	.nav-item a {
 		display: flex;
@@ -454,15 +524,18 @@ html {
 	.nav-list {
 		gap: 35px;
 	}
+
 	.nav-item a {
 		gap: 5px;
 	}
 
+	/* Center phone and support */
 	.header-phone,
 	.header-support {
 		align-self: center;
 	}
 
+	/* Show header contact */
 	.header-contact {
 		display: flex;
 		gap: 5px;
@@ -470,11 +543,14 @@ html {
 	}
 }
 
+/* Desktop (1024px+) */
 @media screen and (min-width: 1024px) {
+	/* Adjust header-main grid */
 	.header-main {
 		grid-template-columns: auto 1.2fr 1fr auto auto;
 	}
 
+	/* Show cart box */
 	.header__cart-box {
 		height: 100%;
 		display: flex;
@@ -482,6 +558,7 @@ html {
 		justify-content: center;
 	}
 
+	/* Show auth button */
 	.header__auth {
 		display: flex;
 		align-items: center;
@@ -489,7 +566,9 @@ html {
 	}
 }
 
+/* Large desktop (1440px+) */
 @media screen and (min-width: 1440px) {
+	/* Adjust header-main grid */
 	.header-main {
 		grid-template-columns: auto 2fr 1fr auto auto;
 	}
