@@ -597,6 +597,7 @@ html {
 	gap: 5px;
 	align-self: center;
 }
+
 .product-categories__title-text {
 	font-size: clamp(1.6rem, 2vw, 2.8rem);
 	font-weight: 800;
@@ -670,21 +671,13 @@ html {
 	/* Adjust header-main grid */
 	.header-main {
 		gap: 10px;
-		grid-template-columns: auto 1fr 1fr;
+		grid-template-columns: auto 1fr;
 	}
 
 	/* Show search box in header-main */
 	.header-main .search-box {
 		display: flex;
 		width: 100%;
-	}
-
-	/* Show header links */
-	.header__links {
-		width: 100%;
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
 	}
 
 	/* Hide search box in header-utility */
@@ -800,6 +793,14 @@ html {
 	/* Hero Slider */
 	.hero-slider__slide {
 		height: clamp(222px, 45vh, 493px);
+	}
+
+	/* Show header links */
+	.header__links {
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
 	}
 }
 
