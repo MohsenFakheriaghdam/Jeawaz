@@ -37,21 +37,41 @@ document.addEventListener("DOMContentLoaded", () => {
 	const slider = document.querySelector(".hero-slider");
 	const slides = document.querySelectorAll(".hero-slider__slide");
 
-	if (!slider || slides.length === 0) {
-		console.error("Slider not found");
-		return;
-	}
+	if (!slider || slides.length === 0) return;
 
 	let currentIndex = 0;
 	let intervalId;
 	const intervalTime = 5000;
+	const animationDuration = 1200; // هرچی بیشتر نرم‌تر
+
+	function easeInOutCubic(t) {
+		return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+	}
+
+	function animateScroll(target) {
+		const start = slider.scrollLeft;
+		const change = target - start;
+		const startTime = performance.now();
+
+		function animate(currentTime) {
+			const elapsed = currentTime - startTime;
+			const progress = Math.min(elapsed / animationDuration, 1);
+
+			const eased = easeInOutCubic(progress);
+
+			slider.scrollLeft = start + change * eased;
+
+			if (progress < 1) {
+				requestAnimationFrame(animate);
+			}
+		}
+
+		requestAnimationFrame(animate);
+	}
 
 	function goToSlide(index) {
-		slides[index].scrollIntoView({
-			behavior: "smooth",
-			inline: "start",
-			block: "nearest",
-		});
+		const target = slides[index].offsetLeft;
+		animateScroll(target);
 	}
 
 	function nextSlide() {
@@ -73,10 +93,8 @@ document.addEventListener("DOMContentLoaded", () => {
 		clearInterval(intervalId);
 	}
 
-	// توقف روی hover
 	slider.addEventListener("mouseenter", stopAutoplay);
 	slider.addEventListener("mouseleave", startAutoplay);
 
-	// شروع
 	startAutoplay();
 });
