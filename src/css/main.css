@@ -694,21 +694,25 @@ html {
 	grid-template-rows: auto 1fr auto;
 }
 
-.newest-products__header {
+.newest-products__header,
+.best-products__header {
 	display: grid;
 	grid-template-columns: 1fr auto;
 }
 
-.newest-products__title {
+.newest-products__title,
+.bset-products__title {
 	font-size: clamp(1.6rem, 2vw, 2.8rem);
 	font-weight: var(--fw-extrabold);
 }
 
-.newest-products__title :first-child {
+.newest-products__title :first-child,
+.bset-products__title :first-child {
 	color: var(--primary-color);
 }
 
-.newest-products__subtitle {
+.newest-products__subtitle,
+.bset-products__subtitle {
 	font-weight: var(--fw-normal);
 	color: var(--secondary-text-color);
 	font-size: clamp(1.2rem, 2vw, 1.6rem);
@@ -728,6 +732,10 @@ html {
 }
 
 .newest-products__header .newest-products__view-all {
+	display: none;
+}
+
+.best-products__header-inner .newest-products__view-all {
 	display: none;
 }
 
@@ -924,6 +932,38 @@ html {
 	font-size: clamp(0.8rem, 2vw, 1.2rem);
 }
 
+/* Bset-Products  */
+
+.best-products__header {
+	align-items: center;
+}
+
+.best-products__header-timer {
+	gap: 5px;
+	display: flex;
+	align-items: center;
+}
+
+.circle {
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: 2px solid #d6a5a5;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 16px;
+	font-weight: bold;
+	color: #222;
+	background: rgba(255, 255, 255, 0.4);
+}
+
+.separator {
+	color: #b33;
+	font-size: 40px;
+	font-weight: bold;
+}
+
 /* ===========================================
    FOOTER
    =========================================== */
@@ -1042,8 +1082,17 @@ html {
 
 	/* newest-products*/
 
+	.newest-products {
+		grid-template-rows: auto 1fr;
+	}
+
 	.newest-products__header .newest-products__view-all {
 		display: flex;
+	}
+
+	/* Product cards grid */
+	.newest-products > .newest-products__view-all {
+		display: none;
 	}
 
 	/* fragrance-showcase */
