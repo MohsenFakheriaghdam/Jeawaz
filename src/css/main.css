@@ -695,24 +695,28 @@ html {
 }
 
 .newest-products__header,
-.best-products__header {
+.best-products__header,
+.educational-posts__header {
 	display: grid;
 	grid-template-columns: 1fr auto;
 }
 
 .newest-products__title,
-.bset-products__title {
+.bset-products__title,
+.educational-posts__title {
 	font-size: clamp(1.6rem, 2vw, 2.8rem);
 	font-weight: var(--fw-extrabold);
 }
 
 .newest-products__title :first-child,
-.bset-products__title :first-child {
+.bset-products__title :first-child,
+.educational-posts__title :first-child {
 	color: var(--primary-color);
 }
 
 .newest-products__subtitle,
-.bset-products__subtitle {
+.bset-products__subtitle,
+.educational-posts__subtitle {
 	font-weight: var(--fw-normal);
 	color: var(--secondary-text-color);
 	font-size: clamp(1.2rem, 2vw, 1.6rem);
@@ -740,11 +744,13 @@ html {
 }
 
 .newest-products__actions,
-.newest-products__view-all {
+.newest-products__view-all,
+.educational-posts__view-all {
 	gap: var(--gap-base);
 }
 
-.newest-products__view-all span {
+.newest-products__view-all span,
+.educational-posts__view-all span {
 	font-size: var(--fs-lg);
 	font-weight: var(--fw-semibold);
 	color: var(--primary-color);
@@ -831,6 +837,8 @@ html {
 
 .product-card__img {
 	width: 100%;
+	height: 240px;
+	object-fit: contain;
 }
 
 .product-card__price-box {
@@ -964,6 +972,103 @@ html {
 	font-weight: bold;
 }
 
+/* educational-posts */
+
+.educational-posts {
+	gap: 15px;
+	display: grid;
+}
+
+.educational-post-lists {
+	display: flex;
+	overflow-y: hidden;
+	overflow-x: auto;
+	justify-content: space-between;
+	gap: 20px;
+	padding-bottom: 10px;
+}
+
+.educational-post {
+	flex: 0 0 333px;
+	padding: 16px 12px;
+	border-radius: 24px;
+	border: 1.5px solid #ebebeb;
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-template-rows: 1fr auto auto;
+	gap: 10px;
+	cursor: pointer;
+}
+
+.educational-post__image {
+	width: 100%;
+	height: 310px;
+	object-fit: cover;
+	object-position: center;
+}
+
+.educational-post__media {
+	border-radius: 16px;
+	position: relative;
+	overflow: hidden;
+}
+
+.educational-post__category {
+	top: 15px;
+	gap: 10px;
+	right: 15px;
+	position: absolute;
+}
+
+.educational-post__category-dot {
+	width: 10px;
+	height: 10px;
+	border-radius: 52px;
+	background-color: var(--primary-color);
+}
+
+.educational-post__category-label {
+	padding: 5px 18px;
+	border-radius: 30px;
+	background-color: #58585821;
+	backdrop-filter: blur(24px);
+	color: var(--white-color);
+	font-size: 12px;
+}
+
+.educational-post__content {
+	gap: 5px;
+	align-items: start;
+	flex-direction: column;
+}
+
+.educational-post__title {
+	font-size: 14px;
+	font-weight: 600;
+}
+
+.educational-post__excerpt {
+	font-weight: 400;
+	font-size: 12px;
+	color: #606060;
+}
+.educational-post__date {
+	font-size: 14px;
+	font-weight: 400;
+	color: #606060;
+}
+.educational-post__meta {
+	justify-content: space-between;
+}
+
+.educational-post__read-more {
+	gap: 5px;
+}
+.educational-post__read-more span {
+	font-size: 14px;
+	font-weight: 500;
+	color: var(--primary-color);
+}
 /* ===========================================
    FOOTER
    =========================================== */
