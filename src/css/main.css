@@ -122,7 +122,7 @@ html {
 	width: 100%;
 	max-width: 1440px;
 	margin: 0 auto;
-	padding: 0 20px;
+	padding: 0 10px;
 }
 
 /* ===========================================
@@ -282,7 +282,6 @@ html {
 .mobile-menu__logo span:last-child {
 	font-size: var(--fs-lg);
 }
-
 
 /* Mobile menu list */
 .mobile-menu__list {
@@ -672,6 +671,11 @@ html {
 	align-items: center;
 }
 
+.product-categories__card:hover {
+	border: 1.5px solid var(--primary-color);
+	transform: translateY(-2px);
+}
+
 .product-categories__image {
 	height: 80px;
 	padding: 8px 10px;
@@ -796,6 +800,11 @@ html {
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-template-rows: auto auto auto;
+}
+
+.product-card:hover {
+	border: 1.5px solid var(--primary-color);
+	transform: translateY(-2px);
 }
 
 .product-card__icons {
@@ -998,12 +1007,13 @@ html {
 }
 
 .educational-post-lists {
+	height: 100%;
 	display: flex;
 	overflow-y: hidden;
 	overflow-x: auto;
 	justify-content: space-between;
 	gap: 20px;
-	padding-bottom: 10px;
+	padding: 3px 0 10px 0;
 }
 
 .educational-post {
@@ -1016,6 +1026,11 @@ html {
 	grid-template-rows: 1fr auto auto;
 	gap: 10px;
 	cursor: pointer;
+}
+
+.educational-post:hover {
+	border: 1.5px solid var(--primary-color);
+	transform: translateY(-2px);
 }
 
 .educational-post__image {
@@ -1284,6 +1299,19 @@ html {
 	border: 1px solid #ebebeb;
 }
 
+/* scrollbar sytle */
+
+.product-cards::-webkit-scrollbar,
+.educational-post-lists::-webkit-scrollbar {
+	height: 3.5px;
+}
+
+.product-cards::-webkit-scrollbar-thumb,
+.educational-post-lists::-webkit-scrollbar-thumb {
+	background: #cc312d;
+	border-radius: 10px;
+	transition: background 0.3s ease;
+}
 @media screen and (min-width: 767px) {
 	/* Footer */
 	.mobile-footer {
@@ -1293,6 +1321,9 @@ html {
 
 /* Tablet and up (768px+) */
 @media screen and (min-width: 768px) {
+	.container {
+		padding: 0 15px;
+	}
 	/* Hide menu and cart buttons */
 	.header__menu-btn,
 	.header__cart {
