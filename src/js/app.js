@@ -34,13 +34,13 @@ document.addEventListener("DOMContentLoaded", () => {
 	/* =========================
 	   Hero Slider
 	========================= */
-	const slider = document.querySelector(".hero-slider");
+	const slider = document.querySelector(".hero-slider__inner");
 	const slides = document.querySelectorAll(".hero-slider__slide");
 
 	if (slider && slides.length > 0) {
 		let currentIndex = 0;
 		let intervalId;
-		const intervalTime = 5000;
+		const intervalTime = 3000;
 		const animationDuration = 1200;
 
 		function easeInOutCubic(t) {
